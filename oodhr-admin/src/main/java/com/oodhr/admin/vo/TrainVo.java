@@ -1,24 +1,23 @@
-package com.oodhr.admin.entity;
+package com.oodhr.admin.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @auther Ayun
- * @date 2022/8/19 12:16
+ * @date 2022/8/19 12:41
  */
 @Data
-@TableName("emp_train")
-public class TrainEntity implements Serializable {
-
+@AllArgsConstructor
+@NoArgsConstructor
+public class TrainVo implements Serializable {
     private static final long serialVersionUID = 1L;
-
 
     /**
      * 主键 id
@@ -46,7 +45,11 @@ public class TrainEntity implements Serializable {
      */
     private String remark;
 
-
-    @TableField(exist = false)
+    /**
+     * 员工姓名
+     */
     private String empName;
+
+
+    private String workId;
 }

@@ -1,7 +1,6 @@
 package com.oodhr.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -11,42 +10,42 @@ import java.util.Date;
 
 /**
  * @auther Ayun
- * @date 2022/8/19 12:16
+ * @date 2022/8/19 19:14
  */
 @Data
-@TableName("emp_train")
-public class TrainEntity implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@TableName("emp_assessment")
+public class AssessmentEntity implements Serializable {
+    private final static long serialVersionUID = 1L;
 
     /**
-     * 主键 id
+     * 主键id
      */
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 员工id
+     * eid 员工id
      */
     private Integer eid;
 
     /**
-     * 培训日期
+     * 考核时间
      */
-    private Date trainDate;
+    private Date appDate;
 
     /**
-     * 培训内容
+     * 考核结果
      */
-    private String trainContent;
+    private String appResult;
+
+    /**
+     * 考核内容
+     */
+    private String appContent;
 
     /**
      * 备注
      */
     private String remark;
 
-
-    @TableField(exist = false)
-    private String empName;
 }
