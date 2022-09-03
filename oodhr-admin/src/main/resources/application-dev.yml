@@ -21,13 +21,6 @@ spring:
         max-idle: 8
         max-wait: 18000
         min-idle: 0
-
-  #rabbitMq
-  rabbitmq:
-    host: 192.168.10.50
-    port: 15672
-    username: root
-    password: dockerTest
     #日期格式
   jackson:
     time-zone: GMT+8

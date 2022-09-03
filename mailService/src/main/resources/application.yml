@@ -1,0 +1,34 @@
+spring:
+
+  #rabbitMq
+  rabbitmq:
+    host: 192.168.10.50
+    port: 15672
+    username: root
+    password: dockerTest
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 879654498@qq.com
+    password: wqtfzfzjfyahbdec
+    default-encoding: UTF-8
+
+  #Redis
+  redis:
+    database: 0
+    host: 192.168.10.50
+    port: 6390
+    password: rockerRedis
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 18000
+        min-idle: 0
+server:
+  port: 9000
