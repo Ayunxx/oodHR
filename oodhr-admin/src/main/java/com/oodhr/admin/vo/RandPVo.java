@@ -47,7 +47,7 @@ public class RandPVo implements Serializable {
     /**
      * 类型
      */
-    private Integer ecType;
+    private String ecType;
 
     /**
      * 备注

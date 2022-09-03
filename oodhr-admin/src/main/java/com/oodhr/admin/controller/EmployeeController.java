@@ -3,10 +3,11 @@ package com.oodhr.admin.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oodhr.admin.entity.EmployeeEntity;
+import com.oodhr.admin.entity.*;
 import com.oodhr.admin.utils.result.Result;
 import com.oodhr.admin.vo.EmployeeVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import com.oodhr.admin.service.EmployeeService;
@@ -24,6 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 @CrossOrigin
+@PreAuthorize("hasAnyAuthority('system:employee')")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -35,6 +37,8 @@ public class EmployeeController {
      * @param size
      * @return
      */
+
+    @PreAuthorize("hasAnyAuthority('system:employee:list','system:employee')")
     @PostMapping("/getEmployeeList/{current}/{size}")
     public Result getEmployeeList(@PathVariable Long current,
                                   @PathVariable Long size,
@@ -52,7 +56,6 @@ public class EmployeeController {
      */
     @PostMapping("/addEmployee")
     public Result addEmployee(@RequestBody EmployeeEntity employeeEntity){
-        System.out.println("1-----------------------");
         EmployeeEntity checkWorkId = employeeService.checkWorkId(employeeEntity);
 
         if (!checkWorkId.equals(null)){
@@ -88,7 +91,7 @@ public class EmployeeController {
      * @return
      */
     @GetMapping("/getEmployeeById/{id}")
-    public Result getEmployeeById(@PathVariable Long id){
+    public Result getEmployeeById(@PathVariable Integer id){
 
         EmployeeEntity employeeServiceById = employeeService.getById(id);
 
@@ -101,7 +104,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    @DeleteMapping("deleteEmployeeById/{id}")
+    @DeleteMapping("/deleteEmployeeById/{id}")
     public Result deleteEmployeeById(@PathVariable Long id){
 
         boolean flag = employeeService.removeById(id);
@@ -113,4 +116,46 @@ public class EmployeeController {
         }
     }
 
+    /**
+     * 获取民族列表
+     * @return
+     */
+    @GetMapping("/getNationList")
+    public Result getNationList(){
+       List<NationEntity> list =  employeeService.getNation();
+
+       return Result.ok(list);
+    }
+
+    /**
+     * 获取部门列表
+     * @return
+     */
+    @GetMapping("/getDepartmentList")
+    public Result getDepartmentList(){
+        List<DepartmentEntity> list = employeeService.getDepartment();
+        return Result.ok(list);
+    }
+
+    /**
+     * 获取职称列表
+     * @return
+     */
+    @GetMapping("/getJobLevelList")
+    public Result getJobLevelList(){
+        List<JobLevelEntity> list = employeeService.getJobLevel();
+        return Result.ok(list);
+    }
+
+    /**
+     * 获取职位列表
+     * @return
+     */
+    @GetMapping("/getPositionList")
+    public Result getPositionList(){
+
+        List<PositionEntity> list = employeeService.getPosition();
+
+        return Result.ok(list);
+    }
 }

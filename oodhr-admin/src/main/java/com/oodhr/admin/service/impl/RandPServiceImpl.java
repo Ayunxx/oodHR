@@ -26,7 +26,7 @@ public class RandPServiceImpl extends ServiceImpl<RandPMapper, RandPEntity> impl
     public IPage<RandPVo> getPage(Long current, Long size, RandPVo randPVo) {
         Page<RandPVo> randPVoPage = new Page<>(current,size);
         QueryWrapper<RandPVo> queryWrapper = new QueryWrapper<>();
-
+        //TODO 具体模糊查询业务
         /*if (!randPVo.equals(null)){
             String workId = randPVo.getWorkId();
             String name = randPVo.getEmpName();

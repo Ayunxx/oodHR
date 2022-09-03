@@ -19,6 +19,10 @@ public enum ResultCodeEnum {
     PERMISSION(209, "没有权限"),
 
     CODE_ERROR(210, "验证码错误"),
+
+    UNAUTHORIZED(401,"用户认证失败，请重新登录"),
+
+    FORBIDDEN(403,"您的权限不足，无法访问")
     ;
 
     private Integer code;

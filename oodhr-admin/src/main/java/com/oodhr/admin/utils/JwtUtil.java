@@ -57,12 +57,12 @@ public class JwtUtil {
 
 
     public static String verity(String token){
-        String result = TOKEN_SUCCESS;
+        String result ;
         try {
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
             JWTVerifier verifier = JWT.require(algorithm).build();
             DecodedJWT jwt = verifier.verify(token);
-            result += jwt.getClaims().get(TOKEN_LOGIN_NAME).asString();
+            result = jwt.getClaims().get(TOKEN_LOGIN_ID).asString();
             return result; // success:username
         } catch (IllegalArgumentException e) {
             return TOKEN_FAIL+e.getMessage();

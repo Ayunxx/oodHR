@@ -2,9 +2,11 @@ package com.oodhr.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,15 +34,15 @@ public class DepartmentEntity implements Serializable {
 	/**
 	 * 部门名称
 	 */
-	private String name;
+	private String departName;
 	/**
 	 * 父部门id
 	 */
-	private Integer parentid;
+	private Integer parentId;
 	/**
 	 * 部门path
 	 */
-	private String deppath;
+	private String departPath;
 	/**
 	 * 是否可用
 	 */
@@ -48,6 +50,13 @@ public class DepartmentEntity implements Serializable {
 	/**
 	 * 是否为父部们
 	 */
-	private Integer isparent;
+	private Integer isParent;
+
+	private Date createTime;
+
+	private Date upDateTime;
+
+	@TableLogic
+	private Integer delFlag;
 
 }

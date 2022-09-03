@@ -2,6 +2,7 @@ package com.oodhr.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -37,7 +38,7 @@ public class ChangeJobEntity implements Serializable {
     /**
      * 调整后的职位
      */
-    private Integer afterJobId;
+    private Integer afterPosId;
 
     /**
      * 调整时间
@@ -53,4 +54,7 @@ public class ChangeJobEntity implements Serializable {
      * 备注
      */
     private String remark;
+
+    @TableLogic
+    private Integer delFlag;
 }

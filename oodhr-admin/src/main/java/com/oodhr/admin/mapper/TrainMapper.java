@@ -26,7 +26,8 @@ public interface TrainMapper extends BaseMapper<TrainEntity> {
     @Select("select et.*,e.emp_name,e.workid " +
             "from emp_train et " +
             "left join employee e " +
-            "on e.id = et.eid"+
+            "on e.id = et.eid "+
+            "where et.del_flag = 0 " +
             "${ew.customSqlSegment}")
     IPage<TrainVo> getPage(Page<TrainVo> page ,@Param(Constants.WRAPPER) QueryWrapper<TrainVo> queryWrapper);
 

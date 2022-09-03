@@ -6,6 +6,8 @@ import com.oodhr.admin.entity.DepartmentEntity;
 import com.oodhr.admin.utils.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,11 +27,15 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/department")
+@CrossOrigin
+@PreAuthorize("hasAnyAuthority('system:department')")
 public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
 
+
+    @PreAuthorize("hasAnyAuthority('system:department:list','system:department')")
     @GetMapping("/getDepartmentList")
     public Result getDepartmentList(){
         List<DepartmentEntity> list = departmentService.list();

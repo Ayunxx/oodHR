@@ -30,7 +30,7 @@ public class TrainServiceImpl extends ServiceImpl<TrainMapper, TrainEntity> impl
         Page<TrainVo> trainVoPage = new Page<>(current,size);
 
         QueryWrapper<TrainVo> queryWrapper = new QueryWrapper<>();
-
+        //TODO 具体模糊查询业务
 
 
         IPage<TrainVo> page = trainMapper.getPage(trainVoPage,queryWrapper);

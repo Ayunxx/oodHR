@@ -57,6 +57,16 @@ public class ChangeJobVo implements Serializable {
     private String remark;
 
     private String empName;
+
     private String workId;
+
+    private String afterDepartName;
+
+    private String afterJobName;
+
+    private String beforeDepartName;
+
+    private String beforeJobName;
+
 
 }

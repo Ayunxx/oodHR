@@ -72,6 +72,16 @@ public class Result<T> {
         return build(data, ResultCodeEnum.FAIL);
     }
 
+    public static<T> Result<T> UNAUTHORIZED(T data){
+        Result<T> result = build(data);
+        return build(data,ResultCodeEnum.UNAUTHORIZED);
+    }
+
+    public static<T> Result<T> FORBIDDEN(T data){
+        Result<T> result = build(data);
+        return build(null,ResultCodeEnum.FORBIDDEN);
+    }
+
     public Result<T> message(String msg){
         this.setMessage(msg);
         return this;

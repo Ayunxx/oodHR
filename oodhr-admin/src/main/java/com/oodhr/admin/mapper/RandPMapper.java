@@ -22,6 +22,7 @@ public interface RandPMapper extends BaseMapper<RandPEntity> {
             "from emp_rewardandpunish rap " +
             "left join employee e " +
             "on e.id = rap.eid "+
+            "where rap.del_flag = 0 "+
             "${ew.customSqlSegment}")
     IPage<RandPVo> getListPage(Page<RandPVo> randPVoPage, @Param(Constants.WRAPPER) QueryWrapper<RandPVo> queryWrapper);
 }

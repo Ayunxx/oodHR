@@ -17,7 +17,7 @@ public class EmployeeVo implements Serializable {
     /**
      * 员工姓名
      */
-    private String empname;
+    private String empName;
     /**
      * 性别
      */
@@ -29,7 +29,7 @@ public class EmployeeVo implements Serializable {
     /**
      * 身份证号
      */
-    private String idcard;
+    private String idCard;
     /**
      * 婚姻状况
      */
@@ -37,11 +37,11 @@ public class EmployeeVo implements Serializable {
     /**
      * 民族
      */
-    private String nationname;
+    private Integer nationId;
     /**
      * 籍贯
      */
-    private String nativeplace;
+    private String nativePlace;
     /**
      * 政治面貌
      */
@@ -61,23 +61,23 @@ public class EmployeeVo implements Serializable {
     /**
      * 所属部门
      */
-    private String departmentname;
+    private String departmentName;
     /**
      * 职称ID
      */
-    private String joblevelname;
+    private String jobLevelName;
     /**
      * 职位ID
      */
-    private String posname;
+    private String posName;
     /**
      * 聘用形式
      */
-    private String engageform;
+    private String engageForm;
     /**
      * 最高学历
      */
-    private String tiptopdegree;
+    private String tiptopDegree;
     /**
      * 所属专业
      */
@@ -89,38 +89,41 @@ public class EmployeeVo implements Serializable {
     /**
      * 入职日期
      */
-    private Date begindate;
+    private Date beginDate;
     /**
      * 在职状态
      */
-    private String workstate;
+    private String workState;
     /**
      * 工号
      */
-    private String workid;
+    private String workId;
     /**
      * 合同期限
      */
-    private String contractterm;
+    private String contractTerm;
     /**
      * 转正日期
      */
-    private Date conversiontime;
+    private Date conversionTime;
     /**
      * 离职日期
      */
-    private Date notworkdate;
+    private Date notworkDate;
     /**
      * 合同起始日期
      */
-    private Date begincontract;
+    private Date beginContract;
     /**
      * 合同终止日期
      */
-    private Date endcontract;
+    private Date endContract;
     /**
      * 工龄
      */
-    private Integer workage;
+    private Integer workAge;
+
+    //民族名称
+    private String nationName;
 
 }

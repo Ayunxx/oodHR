@@ -24,6 +24,9 @@ public class ChangeJobServiceImpl extends ServiceImpl<ChangeJobMapper, ChangeJob
     public IPage<ChangeJobVo> getPage(Long current, Long size, ChangeJobVo changeJobVo) {
         Page<ChangeJobVo> jobVoPage = new Page<>(current,size);
         QueryWrapper<ChangeJobVo> queryWrapper = new QueryWrapper<>();
+        //TODO 模糊业务
+
+
         IPage<ChangeJobVo> listPage = changeJobMapper.getListPage(jobVoPage, queryWrapper);
         return listPage;
     }

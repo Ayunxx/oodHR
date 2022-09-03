@@ -11,4 +11,6 @@ import com.oodhr.admin.vo.ChangeJobVo;
  */
 public interface ChangeJobService extends IService<ChangeJobEntity> {
     IPage<ChangeJobVo> getPage(Long current, Long size, ChangeJobVo changeJobVo);
+
+
 }

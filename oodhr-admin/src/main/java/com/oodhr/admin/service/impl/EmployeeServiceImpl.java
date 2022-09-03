@@ -2,13 +2,13 @@ package com.oodhr.admin.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.oodhr.admin.entity.*;
 import com.oodhr.admin.utils.result.Result;
 import com.oodhr.admin.vo.EmployeeVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.oodhr.admin.mapper.EmployeeMapper;
-import com.oodhr.admin.entity.EmployeeEntity;
 import com.oodhr.admin.service.EmployeeService;
 import org.springframework.util.StringUtils;
 
@@ -39,8 +39,8 @@ import java.util.List;
 
 
         //构建条件
-        String workid = employeeVo.getWorkid();
-        String name = employeeVo.getEmpname();
+        String workid = employeeVo.getWorkId();
+        String name = employeeVo.getEmpName();
         QueryWrapper<EmployeeEntity> employeeEntityQueryWrapper = new QueryWrapper<>();
         if (StringUtils.hasText(workid)) {
             employeeEntityQueryWrapper.like("workid",workid);
@@ -51,6 +51,33 @@ import java.util.List;
         Page<EmployeeEntity> entityPage = new Page<>(current,size);
         IPage<EmployeeEntity> pageList = employeeMapper.getList(entityPage,employeeEntityQueryWrapper);
         return pageList;
+    }
+
+    @Override
+    public List<NationEntity> getNation() {
+
+        List<NationEntity> nationList = employeeMapper.getNationList();
+
+        return nationList;
+    }
+
+    @Override
+    public List<DepartmentEntity> getDepartment() {
+        List<DepartmentEntity> departmentList = employeeMapper.getDepartmentList();
+
+        return departmentList;
+    }
+
+    @Override
+    public List<JobLevelEntity> getJobLevel() {
+        List<JobLevelEntity> jobLevelList = employeeMapper.getJobLevelList();
+        return jobLevelList;
+    }
+
+    @Override
+    public List<PositionEntity> getPosition() {
+        List<PositionEntity> positionList = employeeMapper.getPositionList();
+        return positionList;
     }
 
 

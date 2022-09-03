@@ -2,6 +2,7 @@ package com.oodhr.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,7 +19,7 @@ public class HrEntity {
     /**
      * 姓名
      */
-    private String name;
+    private String hrName;
 
     /**
      * 手机号码
@@ -38,7 +39,7 @@ public class HrEntity {
     /**
      * 账户是否可用
      */
-    private  Integer enabled;
+    private  Integer status;
 
     /**
      * 用户名
@@ -60,5 +61,6 @@ public class HrEntity {
      * */
     private String remark;
 
-
+    @TableLogic
+    private Integer delFlag;
 }
